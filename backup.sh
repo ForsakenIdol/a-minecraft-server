@@ -38,3 +38,4 @@ ls -t $BACKUP_DIR/minecraft-data-*.tar.gz | tail -n +$((MAX_BACKUPS + 1)) | xarg
 echo "Backup complete: $BACKUP_FILE ($(du -h $BACKUP_FILE | cut -f1))."
 echo "Current list of backups:"
 du -sh backups/* | sort -rh
+echo
