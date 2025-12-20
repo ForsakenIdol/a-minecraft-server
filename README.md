@@ -21,3 +21,5 @@ Note that the whitelist should not be configured in the `data/` directory. Add u
 ## Ataching to TTY
 
 Run `docker-compose attach minecraft`. Here, you can run the standard server command suite (e.g. try `say Hello World!` to speak as the server, or `/whitelist add <username>` to add users). Once done, press `Ctrl` + `P` and then `Ctrl` + `Q` to detach - do not use `Ctrl` + `C`, because you will stop the server (remember - you're attached to the main process' STDIN).
+
+If you accidentally stop the server, first, run `docker compose down` to make sure it's stopped properly, then run either of the `run` scripts to start it up again.
