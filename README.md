@@ -2,6 +2,15 @@
 
 A Minecraft server for me and my friends to play on.
 
+## Setup and Management
+
+- On a new instance or VM, `cd` into the directory with this `README.md` file, then run `./restore.sh`. This will set up the server from the most recent backup.
+- To start the server, use `./run.sh`, or `./run-detached.sh` for a non-blocking mode.
+- Backups can be taken while the server is still running and should be done just before stopping the server. To take a backup (which is just compressing the important world and configuration files into an archive in the `backup/` directory), run `./backup.sh`.
+    - This will probably need to be run as a cronjob. Please let ForsakenIdol know if a cronjob has not been configured, if this repository is being run on a VM.
+
+Note that the whitelist should not be configured in the `data/` directory. Add users to the whitelist via tha variable defined in the `whitelist.env` file.
+
 ## Ataching to TTY
 
 Run `docker-compose attach minecraft`. Here, you can run the standard server command suite (e.g. try `say Hello World!` to speak as the server, or `/whitelist add <username>` to add users). Once done, press `Ctrl` + `P` and then `Ctrl` + `Q` to detach - do not use `Ctrl` + `C`, because you will stop the server (remember - you're attached to the main process' STDIN).
