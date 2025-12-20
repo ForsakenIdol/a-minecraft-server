@@ -6,6 +6,9 @@ BACKUP_DIR="./backups"      # The directory in which to put the backups
 MAX_BACKUPS=10              # The number of backups to retain
 CONTAINER="minecraft"       # The name of the Docker-Compose Minecraft service
 
+# Make backup directory if it does not exist yet
+mkdir $BACKUP_DIR
+
 # Announce backup
 docker compose exec -T $CONTAINER rcon-cli say "§c[Backup] Starting automated backup - save-all in progress..."
 
