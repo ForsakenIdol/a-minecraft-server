@@ -12,6 +12,8 @@ services:
       MOTD: "Welcome to A Server, the most original name for a Minecraft server."
       MAX_PLAYERS: 7
       DIFFICULTY: "hard"
+      ENABLE_WHITELIST: true
+      WHITELIST: "${A_SERVER_WHITELIST}" 
 
     volumes:
       # attach the relative directory 'data' to the container's /data path
