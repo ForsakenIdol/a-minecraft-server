@@ -1,0 +1,18 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    pull_policy: daily
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      - EULA: "TRUE"
+      - VERSION: "1.21.11"
+      - MOTD: "Welcome to A Server, the most original name for a Minecraft server."
+      - MAX_PLAYERS: 7
+      - DIFFICULTY: "hard"
+
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./data:/data
