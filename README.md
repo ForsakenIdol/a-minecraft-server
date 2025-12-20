@@ -8,6 +8,7 @@ A Minecraft server for me and my friends to play on.
     - The first time you're setting up the server, or
     - Someone has accidentally overwritten or removed the `backups/` folder. Check the git log to see if this is the case, probably just the last 1 or 2 commits.
 - To start the server, use `./run.sh`, or `./run-detached.sh` for a non-blocking mode.
+- To stop the server, run `docker compose down` from the directory with this README.md file.
 - Backups can be taken while the server is still running and should be done just before stopping the server. To take a backup (which is just compressing the important world and configuration files into an archive in the `backup/` directory), run `./backup.sh`.
     - This will probably need to be run as a cronjob. Please let ForsakenIdol know if a cronjob has not been configured, if this repository is being run on a VM.
 
