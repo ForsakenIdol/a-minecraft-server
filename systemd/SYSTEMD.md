@@ -12,6 +12,12 @@ Running the server in the foreground with systemd (i.e. calling `run.sh` instead
 
 In detached mode, systemd can't see the main Docker Compose service process, can't restart it if it fails, and the container logs don't appear in journald (so they are inaccessible via `journalctl`).
 
+## Using systemd Timers
+
+You can also use systemd timers for the backup process. A systemd timer comprises 2 files:
+- The `.service` file that contains **what** to run.
+- The `.timer` file that contains **when** to run the executable defined in the `.service` file.
+
 ## Useful Commands:
 
 - `systemctl --user list-unit-files --type=service | grep -i minecraft`
@@ -23,6 +29,8 @@ In detached mode, systemd can't see the main Docker Compose service process, can
     - Note that this directory may not already exist if the current user doesn't have any custom unit files to put in there yet, but systemd will pick up on it automatically once created, as it's a well-known directory.
 - `journalctl --user -u minecraft.service`
     - By default, systemd services log to journald unless we explicitly specify a different location.
+
+Timer-specific commands (`start`, `stop`, `enable`, and `disable` work for timers just like they do for services):
 
 - `systemctl --user status worldbackup.timer`
     - You can fetch the status of systemd timers using the same syntax for systemd services.
