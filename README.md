@@ -24,3 +24,15 @@ Note that the whitelist should not be configured in the `data/` directory. Add u
 Run `docker-compose attach minecraft`. Here, you can run the standard server command suite (e.g. try `say Hello World!` to speak as the server, or `/whitelist add <username>` to add users). Once done, press `Ctrl` + `P` and then `Ctrl` + `Q` to detach - do not use `Ctrl` + `C`, because you will stop the server (remember - you're attached to the main process' STDIN).
 
 If you accidentally stop the server, first, run `docker compose down` to make sure it's stopped properly, then run either of the `run` scripts to start it up again.
+
+## Token Management
+
+You may need to specify the GitHub Personal Access Token (PAT) to push to the remote origin. In either case, the following commands may be helpful, assuming you already have the PAT, to avoid constantly having to provide the token:
+
+```sh
+git config credential.helper # Get the current setting for the credential helper
+git config --global credential.helper 'cache --timeout=10800' # Cache the token for 10800 seconds (3 hours)
+git config credential.helper store # Store the token in local storage
+```
+
+This becomes important if you run the `pull-and-run-detached.sh` script.
