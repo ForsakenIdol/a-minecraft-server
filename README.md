@@ -19,6 +19,16 @@ Cronjob example:
 
 Note that the whitelist should not be configured in the `data/` directory. Add users to the whitelist via tha variable defined in the `whitelist.env` file.
 
+## The World Seed
+
+If a world has not already been loaded into the `data/` directory:
+
+- Leaving the container's `SEED` environment variable empty will result in a random seed being chosen when the inital world is being created.
+- Using a valid `SEED` number (positive or negative) will use that seed during random generation.
+
+If a world is already loaded in `data/`, the `SEED` container environment variable has no effect and seems to be ignored.
+
+
 ## Ataching to TTY
 
 Run `docker-compose attach minecraft`. Here, you can run the standard server command suite (e.g. try `say Hello World!` to speak as the server, or `/whitelist add <username>` to add users). Once done, press `Ctrl` + `P` and then `Ctrl` + `Q` to detach - do not use `Ctrl` + `C`, because you will stop the server (remember - you're attached to the main process' STDIN).
