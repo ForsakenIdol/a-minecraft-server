@@ -26,5 +26,7 @@ In detached mode, systemd can't see the main Docker Compose service process, can
 
 - `systemctl --user status worldbackup.timer`
     - You can fetch the status of systemd timers using the same syntax for systemd services.
+- `systemctl --user enable --now worldbackup.timer`
+    - Combines `start` and `enable`. Makes the timer run on boot, and also triggers it to start executing **now**. With just `enable`, the timer will start on next boot, but will wait until the system is next booted.
 - `systemctl --user list-timers`
     - List all the timers for the calling user. Pass `--all` to see loaded but inactive timers as well.
