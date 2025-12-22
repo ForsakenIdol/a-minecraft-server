@@ -1,0 +1,12 @@
+[Unit]
+Description=Executes the backup script for the Minecraft server world.
+
+[Service]
+Type=oneshot
+WorkingDirectory=/absolute/path/to/a-minecraft-server
+ExecStart=/absolute/path/to/backup.sh
+Restart=on-failure
+# The following is the default value. Attempt no more than 5 starts when this service fires.
+StartLimitBurst=5
+
+# No [Install] directive for a timer-controller systemd service. This directive goes into the .timer file.

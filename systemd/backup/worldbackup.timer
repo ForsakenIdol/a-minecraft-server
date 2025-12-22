@@ -1,0 +1,11 @@
+[Unit]
+Description=Backs up the Minecraft server world file run by the minecraft.service unit file.
+
+[Timer]
+OnCalendar=daily
+Unit=worldbackup.service
+# Persistence controls whether the timer should run immediately if it missed the last execute time.
+Persistent=false
+
+[Install]
+WantedBy=timers.target

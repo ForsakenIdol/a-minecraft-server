@@ -2,7 +2,9 @@
 
 There is an example unit file for reference. Note particularly the `WorkingDirectory` paramter, which needs to be set to the absolute path from root to the top level of this repository, as the scripts are sensitive to the working directory that they're called from.
 
-Remember to pass the `--user` directive in calls to `systemctl` and don't put the unit in the system-wide directory. Likewise, because the `kali-minecraft` service will log to journald by default (without an explicit logging path specified), we need to run `journalctl --user -u kali-minecraft.service` to get the service logs (pass `--follow` to watch the logs live).
+Remember to pass the `--user` directive in calls to `systemctl`. We do this because our unit file should be placed into the relevant folder in the home directory for the **current user** (`~/.config/systemd/user`), not in the global cron directory (`/etc/cron.d`).
+
+Because the `kali-minecraft` service will log to journald by default (without an explicit logging path specified), we need to run `journalctl --user -u kali-minecraft.service` to get the service logs (pass `--follow` to watch the logs live).
 
 Running the server in the foreground with systemd (i.e. calling `run.sh` instead of `run-detached.sh`) means:
 - Systemd can track the Docker Compose process as the main service process.
@@ -19,3 +21,10 @@ In detached mode, systemd can't see the main Docker Compose service process, can
 - `mkdir -p ~/.config/systemd/user`
     - Make the directory for systemd unit files for the current user. This is the default location for all systemd-based Linux distributions, including Amazon Linux 2023 (Fedora) and Kali Linux (Debian).
     - Note that this directory may not already exist if the current user doesn't have any custom unit files to put in there yet, but systemd will pick up on it automatically once created, as it's a well-known directory.
+- `journalctl --user -u minecraft.service`
+    - By default, systemd services log to journald unless we explicitly specify a different location.
+
+- `systemctl --user status worldbackup.timer`
+    - You can fetch the status of systemd timers using the same syntax for systemd services.
+- `systemctl --user list-timers`
+    - List all the timers for the calling user. Pass `--all` to see loaded but inactive timers as well.
