@@ -11,7 +11,7 @@ services:
       VERSION: "1.21.11"
       MOTD: "Welcome to A Server, the most original name for a Minecraft server."
       MAX_PLAYERS: 7
-      DIFFICULTY: "hard"
+      DIFFICULTY: "normal"
       ENABLE_WHITELIST: true
       WHITELIST: "${A_SERVER_WHITELIST}" 
       SEED: "5911919407403917058"
