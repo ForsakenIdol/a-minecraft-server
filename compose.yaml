@@ -14,6 +14,7 @@ services:
       DIFFICULTY: "hard"
       ENABLE_WHITELIST: true
       WHITELIST: "${A_SERVER_WHITELIST}" 
+      SEED: "5911919407403917058"
 
     volumes:
       # attach the relative directory 'data' to the container's /data path
