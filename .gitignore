@@ -1,3 +1,6 @@
 # We can restore the entire data/ directory from backups and runtime pulls.
 # We never need to back up its contents.
 data/
+
+# The example systemd units are for my Kali machine only.
+systemd/examples/

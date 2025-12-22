@@ -1,0 +1,15 @@
+[Unit]
+Description=A Minecraft server for me and my friends.
+After=docker.target
+
+[Service]
+Type=simple
+WorkingDirectory=/absolute/path/to/a-minecraft-server
+ExecStart=/absolute/path/to/run.sh
+Restart=on-failure
+
+[Install]
+# The multi-user.target unit is when all essential system services for
+# a multi-user, CLI system (including networking) have started.
+# The GUI is not necessary for this target.
+WantedBy=multi-user.target
