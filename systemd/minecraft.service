@@ -12,4 +12,5 @@ Restart=on-failure
 # The multi-user.target unit is when all essential system services for
 # a multi-user, CLI system (including networking) have started.
 # The GUI is not necessary for this target.
-WantedBy=multi-user.target
+# The multi-user.target unit also isn't available for user-space services. We use the default.target instead.
+WantedBy=default.target
