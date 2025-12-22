@@ -18,3 +18,4 @@ In detached mode, systemd can't see the main Docker Compose service process, can
     - Reload systemd if it's not picking up on the new unit file.
 - `mkdir -p ~/.config/systemd/user`
     - Make the directory for systemd unit files for the current user. This is the default location for all systemd-based Linux distributions, including Amazon Linux 2023 (Fedora) and Kali Linux (Debian).
+    - Note that this directory may not already exist if the current user doesn't have any custom unit files to put in there yet, but systemd will pick up on it automatically once created, as it's a well-known directory.
