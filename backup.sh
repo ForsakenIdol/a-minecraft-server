@@ -3,7 +3,7 @@
 # Config
 DATA_DIR="./data"           # The directory where the server files are
 BACKUP_DIR="./backups"      # The directory in which to put the backups
-MAX_BACKUPS=10              # The number of backups to retain
+MAX_BACKUPS=3               # The number of backups to retain
 CONTAINER="minecraft"       # The name of the Docker-Compose Minecraft service
 
 # Make backup directory if it does not exist yet
